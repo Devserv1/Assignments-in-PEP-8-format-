@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
 
 import pandas as pd
 import numpy as np
-def generate_random_timeseries_data(proportion_to_delete=0.2):
+def Generate_Random_Timeseries_Data(proportion_to_delete=0.2):
     # Create a date range for the year 2020,  + 20 business days 
     date_range = pd.date_range(start='2020-01-01', end='2021-01-20', freq='B')  # 'B' for business day frequency
 
@@ -24,27 +22,22 @@ def generate_random_timeseries_data(proportion_to_delete=0.2):
     return timeseries_data
 
 
-# In[6]:
 
 
-data=generate_random_timeseries_data()
+data=Generate_Random_Timeseries_Data()
 data.shape
 
 
-# In[7]:
 
 
 data.head(25)
 
 
-# In[8]:
 
 
 data['Date_Integer'] = (data['Date'] - data['Date'].min()).dt.days
 data
 
-
-# In[15]:
 
 
 import math
@@ -64,8 +57,6 @@ ten_days_return = returns(data)
 print(ten_days_return)
 
 
-# In[19]:
-
 
 final_ret={}
 for dt,dt1 in data.items():
@@ -74,7 +65,7 @@ for dt,dt1 in data.items():
 print(final_ret)
 
 
-# In[ ]:
+
 
 
 

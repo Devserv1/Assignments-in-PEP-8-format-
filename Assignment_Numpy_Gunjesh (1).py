@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[59]:
+
 
 
 import numpy as np
 
-def product_except_self(nums):
+def Product_Except_Self(nums):
     nums = np.array(nums)
     total_product = np.prod(nums)
     answer = total_product / nums # this line works because of Ufunc (vectorization)
@@ -14,10 +14,8 @@ def product_except_self(nums):
 
 # Example usage
 nums = [4,2,5,1]
-print(product_except_self(nums)) 
+print(Product_Except_Self(nums)) 
 
-
-# In[61]:
 
 
 import numpy as np
@@ -50,7 +48,7 @@ pnl_grid = {
 }
 
 # Function to calculate interpolated pnl
-def calculate_interpolated_pnl(sorted_shock_list, sorted_pnl_list, shock_value):
+def Calculate_Interpolated_Pnl(sorted_shock_list, sorted_pnl_list, shock_value):
     
     spline= CubicSpline(sorted_shock_list, sorted_pnl_list, bc_type='natural')(shock_value)
     return spline
@@ -81,7 +79,7 @@ for issuer_id, (shock_list, pnl_list) in pnl_grid.items():
         pnl_results[issuer_id] = None
     else:
         
-        interpolated_pnl = calculate_interpolated_pnl(sorted_shock_list, sorted_pnl_list,shock_value)
+        interpolated_pnl = Calculate_Interpolated_Pnl(sorted_shock_list, sorted_pnl_list,shock_value)
         pnl_results[issuer_id] = interpolated_pnl 
 
 print(pnl_results)
@@ -158,7 +156,7 @@ for issuer_id, cutoff in cutoffs.items():
     # calculate pnl using interpolation of shocks 
 
     shocks = (random_no * res).sum(axis=1)
-    pnls = calculate_interpolated_pnl(sorted_shock_list, sorted_pnl_list, shocks)
+    pnls = Calculate_Interpolated_Pnl(sorted_shock_list, sorted_pnl_list, shocks)
     expected_pnl[issuer_id]=np.mean(pnls)
 
 print(expected_pnl)

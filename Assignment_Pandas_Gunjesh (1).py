@@ -1,27 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+
 
 
 import pandas as pd
-data=pd.read_csv("C:/Users/JR525WA/Downloads/Assignment_Pandas_Q1.csv")
-df=data
+data = pd.read_csv("C:/Users/JR525WA/Downloads/Assignment_Pandas_Q1.csv")
+df = data
 
-
-# In[2]:
 
 
 df.head()
 
 
-# In[3]:
-
-
 df.isna()
-
-
-# In[4]:
 
 
 df.columns
@@ -29,7 +21,6 @@ df.columns
 
 # # Question 1- part(1)
 
-# In[5]:
 
 
 df.groupby('Region')['Units'].sum()
@@ -39,45 +30,40 @@ df.groupby('Region')['Units'].sum()
 
 # # Question 1- part(2)
 
-# In[6]:
 
 
 Manager_performance=df.groupby('Manager')['Units'].sum()
 Manager_performance
 
 
-# In[7]:
+
 
 
 Manager_performance_data={'Manager': ['Douglas', 'Hermann', 'Martha', 'Timothy'],
                           'Units': [415, 647, 704, 355]}
-Manager_performance_df=pd.DataFrame(Manager_performance_data)
+Manager_performance_df = pd.DataFrame(Manager_performance_data)
 Manager_performance_df
 
 
-# In[8]:
+
 
 
 Manager_performance_df_sorted=Manager_performance_df.sort_values('Units',ascending=False)
 Manager_performance_df_sorted
 
 
-# In[9]:
 
 
-Manager_performance_df_sorted['Rank']=['A','B','C','D']
+
+Manager_performance_df_sorted['Rank'] = ['A','B','C','D']
 Manager_performance_df_sorted
 
-
-# In[10]:
 
 
 df
 
 
 # # Question 1- part(3)
-
-# In[11]:
 
 
 import re
@@ -98,46 +84,21 @@ for column in cleaned_columns:
 print(df_copy)
 
 
-# In[ ]:
-
-
-
-
-
-# In[12]:
-
 
 df_copy.fillna(5)
 
-
-# In[13]:
 
 
 df_copy.drop_duplicates()
 
 
-# In[ ]:
 
-
-
-
-
-# In[14]:
-
-
-df['OrderDate']=pd.to_datetime(df['OrderDate'])
+df['OrderDate'] = pd.to_datetime(df['OrderDate'])
 print(df)
-
-
-# In[ ]:
-
-
 
 
 
 # # Question 1- part(4)
-
-# In[15]:
 
 
 from datetime import datetime
@@ -149,12 +110,10 @@ print(df)
 
 # # Question 1- part(5)
 
-# In[16]:
-
 
 import re
 
-df_copy_2=df.copy()
+df_copy_2 = df.copy()
 
 cleaned_columns=df_copy_2.columns
 
@@ -170,16 +129,8 @@ for column in cleaned_columns:
 print(df_copy_2)
 
 
-# In[17]:
-
 
 df_copy_2['Sale_amt']
-
-
-# In[18]:
-
-
-
 
 
 
@@ -197,10 +148,6 @@ print(pivot_table1)
 
 # # Question 1- part(6)
 
-# In[19]:
-
-
-
 
 # Filter rows where Manager is "Douglas"
 douglas_data = df_copy_2[df_copy_2['Manager'] == 'Douglas']
@@ -213,11 +160,6 @@ print(pivot_table2)
 
 # # Question 1- part(8)
 
-# In[20]:
-
-
-
-
 # Group by columns and sort sum of Sale_amt within each group
 sorted_grouped_df = df_copy_2.groupby(['Region', 'Manager', 'SalesMan', 'Item'])['Sale_amt'].sum().reset_index().sort_values('Sale_amt', ascending=False)
 
@@ -225,8 +167,6 @@ print(sorted_grouped_df)
 
 
 # # Question 1- part(9)
-
-# In[21]:
 
 
 grouped_df = df_copy_2.groupby('Region').agg({
@@ -240,8 +180,6 @@ print(grouped_df)
 
 # # Question 1- part(10)
 
-# In[22]:
-
 
 df_copy_2['OrderDate'] = pd.to_datetime(df['OrderDate'], dayfirst=True)
 
@@ -253,19 +191,8 @@ print(df_copy_2)
 
 # # Question 2- part(1)
 
-# In[ ]:
-
-
-
-
-
-# In[23]:
-
 
 pip install yfinance
-
-
-# In[29]:
 
 
 import yfinance as yf
@@ -300,12 +227,7 @@ print(data_META_Closing.head())
 
 # # Question 2- part(2)
 
-# In[30]:
-
-
 import pandas as pd
-
-
 
 # Merge DataFrames based on the 'Date' column
 merged_data = pd.merge(data_AAPL_Closing,data_GOOGL_Closing, on='Date', how='outer')
@@ -324,9 +246,6 @@ print(final_merged_data.head())
 
 # # Question 2- part(3)
 
-# In[31]:
-
-
 
 import numpy as np
 
@@ -342,8 +261,6 @@ print(final_merged_data.head())
 
 
 # # Question 2- part(4)
-
-# In[32]:
 
 
 
@@ -375,8 +292,6 @@ print(var_percentiles)
 
 # # Question 2- part(5)
 
-# In[33]:
-
 
 final_merged_data['AAPL_Log_Return_2'] = np.log(final_merged_data['AAPL_Close'] / final_merged_data['AAPL_Close'].shift(2))
 final_merged_data['GOOGL_Log_Return_2'] = np.log(final_merged_data['GOOGL_Close'] / final_merged_data['GOOGL_Close'].shift(2))
@@ -389,9 +304,6 @@ final_merged_data['GOOGL_Log_Return_10'] = np.log(final_merged_data['GOOGL_Close
 final_merged_data['META_Log_Return_10'] = np.log(final_merged_data['META_Close'] / final_merged_data['META_Close'].shift(10))
 
 print(final_merged_data.head())
-
-
-# In[34]:
 
 
 # Calculate the portfolio returns using random weights
@@ -436,8 +348,6 @@ print(var_percentiles_diff_period)
 
 # # Question 2- part(5)
 
-# In[35]:
-
 
 df_H1=pd.DataFrame(var_percentiles,index=['1day'])
 
@@ -448,9 +358,6 @@ df_H1.columns=column_names
 print(df_H1)
 
 
-# In[36]:
-
-
 df_H_diff_pd = pd.DataFrame(var_percentiles_diff_period, index=['2day','5day','10day'])
 
 column_names=['99 %','95 %','90 %']
@@ -459,16 +366,11 @@ df_H_diff_pd.columns=column_names
 print(df_H_diff_pd)
 
 
-# In[37]:
-
-
 Summary_dataframe=pd.concat([df_H1,df_H_diff_pd])
 print(Summary_dataframe)
 
 
 # # Question 3
-
-# In[38]:
 
 
 data1=pd.read_excel("C:/Users/JR525WA/Downloads/13-07-2023_Region_mu_sigma_1.xlsx")
@@ -485,9 +387,6 @@ data10=pd.read_excel("C:/Users/JR525WA/Downloads/01-02-2018_Region_mu_sigma_10.x
 One_file=pd.concat([data1,data2,data3,data4,data5,data6,data7,data8,data9,data10])
 #print(One_file)
 print(data5)
-
-
-# In[39]:
 
 
 
@@ -511,9 +410,6 @@ transformed_df1 = pd.DataFrame(transformed_data1)
 print(transformed_df1)
 
 
-# In[40]:
-
-
 
 transformed_data2 = []
 
@@ -531,9 +427,6 @@ transformed_df2 = pd.DataFrame(transformed_data2)
 
 
 print(transformed_df2)
-
-
-# In[41]:
 
 
 transformed_data3 = []
@@ -554,9 +447,6 @@ transformed_df3 = pd.DataFrame(transformed_data3)
 print(transformed_df3)
 
 
-# In[42]:
-
-
 transformed_data4 = []
 
 for index, row in data4.iterrows():
@@ -573,9 +463,6 @@ transformed_df4 = pd.DataFrame(transformed_data4)
 
 
 print(transformed_df4)
-
-
-# In[43]:
 
 
 
@@ -597,9 +484,6 @@ transformed_df5 = pd.DataFrame(transformed_data5)
 print(transformed_df5)
 
 
-# In[44]:
-
-
 transformed_data6 = []
 
 for index, row in data6.iterrows():
@@ -616,9 +500,6 @@ transformed_df6 = pd.DataFrame(transformed_data6)
 
 
 print(transformed_df6)
-
-
-# In[45]:
 
 
 transformed_data7 = []
@@ -639,9 +520,6 @@ transformed_df7 = pd.DataFrame(transformed_data7)
 print(transformed_df7)
 
 
-# In[46]:
-
-
 transformed_data8 = []
 
 for index, row in data8.iterrows():
@@ -658,9 +536,6 @@ transformed_df8 = pd.DataFrame(transformed_data8)
 
 
 print(transformed_df8)
-
-
-# In[47]:
 
 
 transformed_data9 = []
@@ -681,9 +556,6 @@ transformed_df9 = pd.DataFrame(transformed_data9)
 print(transformed_df9)
 
 
-# In[48]:
-
-
 transformed_data10 = []
 
 for index, row in data10.iterrows():
@@ -702,14 +574,9 @@ transformed_df10 = pd.DataFrame(transformed_data10)
 print(transformed_df10)
 
 
-# In[49]:
-
-
 Result_df=pd.concat([transformed_df1,transformed_df2,transformed_df3,transformed_df4,transformed_df5,transformed_df6,transformed_df7,transformed_df8,transformed_df9,transformed_df10], ignore_index=True)
 print(Result_df)
 
-
-# In[ ]:
 
 
 

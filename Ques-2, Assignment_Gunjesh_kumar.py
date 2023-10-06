@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
 
 
-def is_prime(number):
+def Is_Prime(number):
     if number==1:
         return False
     
@@ -18,12 +17,10 @@ def is_prime(number):
 def find_prime_numbers(start,end):
     prime_numbers=[]
     for num in range(start,end+1):
-        if is_prime(num):
+        if Is_Prime(num):
             prime_numbers.append(num)
     return prime_numbers
 
-
-# In[6]:
 
 
 start_range=1
@@ -40,7 +37,7 @@ Debugging involved two changes:
     1. Changed the start of range function to 2 from 1. This is because a prime number is always divisible by 1.
     2. Chnaged the operator from "/" to "%". This is because the quotient(given by "%") upon dividing the 'number' by 'i' should        be Zero.
    
-# In[ ]:
+
 
 
 

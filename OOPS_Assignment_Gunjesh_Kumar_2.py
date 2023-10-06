@@ -3,8 +3,6 @@
 
 # # QUESTION 3:
 
-# In[1]:
-
 
 class BankAccount():
     def __init__(self,name,initial_amount):
@@ -34,30 +32,7 @@ class BankAccount():
               
               
               
-              
-              
-              
-              
-            
-                  
-              
-              
-              
-              
-                
-              
-              
-                  
-              
-              
-              
-              
-
-
-# In[2]:
-
-
-# ASK HOW TO INHERIT METHODS???
+        
 class InterestRewardAcc(BankAccount):
     def __init__(self,name,initial_amount):
         super().__init__(name,initial_amount)
@@ -70,9 +45,6 @@ class InterestRewardAcc(BankAccount):
         super().Deposit(new_amount)
         self.add_benefit()
     
-
-
-# In[3]:
 
 
 class SavingsAcc(InterestRewardAcc):
@@ -88,14 +60,7 @@ class SavingsAcc(InterestRewardAcc):
         
     
         
-        
-        
-    
-
-
 # # QUESTION 2
-
-# In[4]:
 
 
 class M():
@@ -139,7 +104,6 @@ obj.process()
 
 # Above is the MRO created for part 1.Only condition when it can fail is if we dont have any attribute in class M(the base class).
 
-# In[5]:
 
 
 class C():
@@ -167,7 +131,6 @@ obj.process()
 
 # # QUESTION 1
 
-# In[6]:
 
 
 import math
@@ -196,8 +159,6 @@ def complex_mathematics(a,b,c,d):
 
 
 # # QUESTION 4
-
-# In[ ]:
 
 
 class FormulaError(Exception):
@@ -242,9 +203,6 @@ while True:
         print(f"Error: {e}")
         
    
-
-
-# In[ ]:
 
 
 

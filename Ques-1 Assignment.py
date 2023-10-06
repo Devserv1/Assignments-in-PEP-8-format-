@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[22]:
 
 
 #An illustrative portfolio
@@ -17,10 +16,8 @@ stock_portfolio = {
 }
 
 
-# In[27]:
 
-
-def buy_stock(portfolio, stock_symbol, num_shares, purchase_price):
+def Buy_Stock(portfolio, stock_symbol, num_shares, purchase_price):
     if stock_symbol in portfolio:
         # Stock already exists in the portfolio, update the information
         present_shares = portfolio[stock_symbol]['shares']
@@ -48,17 +45,15 @@ num_shares=input("Shares quantity bought:")
 purchase_price=input(" Price:")
 
 # Buying 20 shares of MSFT at 250 each
-portfolio = buy_stock(portfolio, stock_symbol, num_shares, purchase_price)
+portfolio = Buy_Stock(portfolio, stock_symbol, num_shares, purchase_price)
 
 
 
 print(portfolio)
 
 
-# In[24]:
 
-
-def sell_stock(portfolio, stock_symbol, num_shares_to_sell):
+def Sell_Stock(portfolio, stock_symbol, num_shares_to_sell):
     if stock_symbol in portfolio:
         present_shares = portfolio[stock_symbol]['shares']
         if num_shares_to_sell <= present_shares:
@@ -82,8 +77,6 @@ def sell_stock(portfolio, stock_symbol, num_shares_to_sell):
 
 
 
-# In[25]:
-
 
 import random
 
@@ -101,9 +94,6 @@ def calculate_portfolio_value(portfolio):
 
 
 
-# In[26]:
-
-
 def portfolio_performance(initial_value, present_value):
     if initial_value == 0:
         return 0
@@ -112,8 +102,6 @@ def portfolio_performance(initial_value, present_value):
     return percentage_change
 
 
-
-# In[ ]:
 
 
 

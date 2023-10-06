@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
 
-
-def two_sum_closest(nums, target):
+def Two_Sum_Closest(nums, target):
     closest_sum = float('inf')  # Initialize to positive infinity
     result = None
 
@@ -30,14 +28,11 @@ def two_sum_closest(nums, target):
 # Example usage:
 sorted_array = [-2, 0, 1, 2, 3]
 target = 0
-result = two_sum_closest(sorted_array, target)
+result = Two_Sum_Closest(sorted_array, target)
 print(result)  
 
 
-# In[2]:
-
-
-def max_profit(prices):
+def Max_Profit(prices):
     max_profit = 0
 
     for i in range(1, len(prices)):
@@ -49,10 +44,8 @@ def max_profit(prices):
 
 # Test case
 
-print(max_profit([1, 2, 3, 4, 5])) 
+print(Max_Profit([1, 2, 3, 4, 5])) 
 
-
-# In[4]:
 
 
 from math import sqrt
@@ -71,7 +64,7 @@ def isPrime(n):
 
     
 
-def find_first_100_twin_primes():
+def Find_First_100_Twin_Primes():
     twin_primes = []
     num = 3  # Start checking from the first possible twin prime pair (3, 5)
 
@@ -83,7 +76,7 @@ def find_first_100_twin_primes():
     return twin_primes
 
 # Example usage:
-first_100_twin_primes = find_first_100_twin_primes()
+first_100_twin_primes = Find_First_100_Twin_Primes()
 for pair in first_100_twin_primes:
     print(pair)
 
